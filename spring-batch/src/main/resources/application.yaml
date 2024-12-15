@@ -1,0 +1,36 @@
+server:
+  port : 8082
+spring:
+  h2:
+    console:
+      enabled: true
+  application:
+    name: Spring Batch
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MYSQL
+    username: sa
+    password:
+    #driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: h2
+    #database-platform: org.hibernate.dialect.H2Dialect
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+
+logging:
+  level:
+    org:
+      hibernate:
+        #SQL: DEBUG
+        orm:
+          jdbc:
+            #bind: TRACE
